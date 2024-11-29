@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 /* Home.css */
 
 /* General Styling */
@@ -194,7 +194,7 @@ header a:hover {
     h5 {
         font-size: 20px;
     }
-=======
+
 .icons{
     font-size: 32px;
     height: 32px;
@@ -215,5 +215,5 @@ header a:hover {
     padding: 7px;
     background-color: #fff;
     margin:10px;
->>>>>>> bd03d83ece5303b0a85744d4e760f5f29f844d61
+}
 }
