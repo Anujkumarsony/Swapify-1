@@ -7,30 +7,29 @@ import './Login.css'; // Import the CSS file for styling
 function Login() {
     const navigate = useNavigate();
 
-    const [username, setusername] = useState('');
-    const [password, setpassword] = useState('');
+    const [username, setUsername] = useState(''); // Updated variable naming
+    const [password, setPassword] = useState(''); // Updated variable naming
 
     const handleApi = () => {
         if (!username || !password) {
             alert("Username or password should not be empty");
             return;
         }
+        
         const url = 'http://localhost:4000/login';
         const data = { username, password };
+
         axios.post(url, data)
             .then((res) => {
                 if (res.data.message) {
-<<<<<<< HEAD
+                    alert(res.data.message); // Show the message from response
+
+                    // Check if token exists and store it
                     if (res.data.token) {
                         localStorage.setItem('token', res.data.token);
-=======
-                    if(res.data.token){
-                        localStorage.setItem('token', res.data.token);
                         localStorage.setItem('userId', res.data.userId);
->>>>>>> bd03d83ece5303b0a85744d4e760f5f29f844d61
-                        navigate('/');
+                        navigate('/'); // Redirect after login
                     }
-                    alert(res.data.message);
                 }
             })
             .catch((err) => {
@@ -48,7 +47,7 @@ function Login() {
                     type="text" 
                     id="username" 
                     value={username} 
-                    onChange={(e) => setusername(e.target.value)} 
+                    onChange={(e) => setUsername(e.target.value)} 
                     className="login-input"
                 />
                 <label htmlFor="password">PASSWORD</label>
@@ -56,7 +55,7 @@ function Login() {
                     type="password" 
                     id="password" 
                     value={password} 
-                    onChange={(e) => setpassword(e.target.value)} 
+                    onChange={(e) => setPassword(e.target.value)} 
                     className="login-input"
                 />
                 <button onClick={handleApi} className="login-button">Login</button>
