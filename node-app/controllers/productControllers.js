@@ -62,8 +62,8 @@ module.exports.search = (req, res) => {
 
 module.exports.addProduct = (req, res) => {
 
-    console.log(req.files);
-    console.log(req.body);
+    // console.log(req.files);
+    // console.log(req.body);
 
 
     const plat = req.body.plat;

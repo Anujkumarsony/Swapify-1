@@ -12,6 +12,7 @@ const Users = mongoose.model('Users', {
 module.exports.likeProducts = (req, res) => {
     let productId = req.body.productId;
     let userId = req.body.userId;
+    console.log(req.body)
 
     Users.updateOne({ _id: userId }, { $addToSet: { likedProducts: productId } })
         .then(() => {
@@ -108,12 +109,11 @@ module.exports.login = (req, res) => {
 
 module.exports.likedProducts = (req, res) => {
 
-    Users.findOne({ _id: req.body.userId }).populate('likedProducts')
+    Users.findOne({_id : req.body.userId}).populate('likedProducts')
         .then((result) => {
             res.send({ message: 'success', products: result.likedProducts })
         })
         .catch((err) => {
             res.send({ message: 'server err' })
         })
-
 }

@@ -22,7 +22,8 @@ function LikedProducts() {
 
     useEffect(() => {
         const url = 'http://localhost:4000/liked-products';
-        axios.get(url)
+        let data = {userId : localStorage.getItem('userId')}
+        axios.post(url, data)
             .then((res) => {
                 if (res.data.products) {
                     setproducts(res.data.products);
@@ -62,6 +63,9 @@ function LikedProducts() {
     }
 
     const handleLike = (productId) => {
+        if (!localStorage.getItem('token')){
+            alert('Please login to like a product')
+        }
         let userId = localStorage.getItem('userId')
         console.log('userId', "productId", productId, userId);
 

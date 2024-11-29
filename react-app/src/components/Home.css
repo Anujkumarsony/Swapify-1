@@ -6,7 +6,7 @@
     cursor: pointer;
   }
 
-.icons:hover{
+.icons:active{
     color: red;
 }
 
@@ -18,11 +18,4 @@
     padding: 7px;
     background-color: #fff;
     margin:10px;
-}
-
-.links{
-    text-decoration: none;
-    font-size: 24px;
-    color: #002f34;
-    font-weight: bold;
 }

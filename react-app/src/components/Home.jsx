@@ -62,25 +62,37 @@ function Home() {
     }
 
     const handleLike = (productId) => {
-        let userId = localStorage.getItem('userId')
-        console.log('userId',  productId, "productId", userId);
-
-        const url = 'http://localhost:4000/like-product';
-        const data = {userId, productId}
-        axios.post(url, data)
-            .then((res) => {
-                if(res.data.message){
-                    alert('Liked.')
-                }
-            })
-            .catch((err) => {
-                alert('Something went wrong')
-            })
-    }
+        let userId = localStorage.getItem('userId'); // Retrieve the user ID from local storage
         
+        if (!userId) {
+            alert('Please login to like a product');
+            return; // Exit if user is not logged in
+        }
+        const url = 'http://localhost:4000/like-product';
+        const data = { userId, productId }; // userId is now the correct value
+        axios.post(url, data)
+        .then((res) => {
+            // console.log(res);
+            if(res.data.message){
+                alert('Product liked successfully');
+            }
+        })
+        .catch ((error) => {
+            console.error('Error liking product:', error);
+            alert('An error occurred while liking the product. Please try again later.');
+        })
+    };
+
     const handleProduct = (id) => {
+
         navigate('/product/' + id)
-    }
+    };
+
+    const handleCardClick = (id, isLiked) => {
+        if (isLiked) {
+          handleProduct(id);
+        }
+      };
 
     return (
         <div>
@@ -93,7 +105,7 @@ function Home() {
                 {cproducts && products.length > 0 &&
                     cproducts.map((item, index) => {
                         return (
-                            <div key={item._id} className="card m-3">
+                            <div onClick={() => handleCardClick(item._id, item.isLiked)} key={item._id} className="card m-3">
                                 <div onClick={() => handleLike(item._id)} className="icon-con">
                                     <FaHeart className="icons" />
                                 </div>

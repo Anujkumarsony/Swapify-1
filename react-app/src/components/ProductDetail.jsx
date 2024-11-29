@@ -7,7 +7,7 @@ function ProductDetail() {
 
     const [product, setproduct] = useState()
     const [user, setuser] = useState()
-    console.log(user, "userrrrr")
+    console.log(user, user)
     const p = useParams()
 
     useEffect(() => {
@@ -25,7 +25,7 @@ function ProductDetail() {
 
 
     const handleContact = (addedBy) => {
-        console.log('id', addedBy)
+        // console.log('id', addedBy)
         const url = 'http://localhost:4000/get-user/' + addedBy;
         axios.get(url)
             .then((res) => {
@@ -47,7 +47,7 @@ function ProductDetail() {
         PRODUCT DETAILS :
         <div >
             {product && <div className="d-flex justify-content-between flex-wrap">
-                <div>
+                <div class>
                     <img width="400px" height="200px" src={'http://localhost:4000/' + product.pimage} alt="" />
                     {product.pimage2 && <img width="400px" height="200px" src={'http://localhost:4000/' + product.pimage} alt="" />}
                     <h6> Product Details : </h6>
@@ -65,7 +65,7 @@ function ProductDetail() {
                     {user && user.username && <h4>{user.username}</h4>}
                     {user && user.mobile && <h3>{user.mobile}</h3>}
                     {user && user.email && <h6>{user.email}</h6>}
-                    <button onClick={() => handleExchangeRequest(product._Id)}>Request Exchange</button>
+                    <button onClick={() => handleExchangeRequest(product._Id)}>Swap</button>
 
                 </div>
             </div>}
