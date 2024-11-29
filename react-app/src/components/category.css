@@ -1,0 +1,80 @@
+/* Container for Categories */
+.cat-container {
+    background-color: #f8f9fa; /* Light background */
+    padding: 15px 35px; /* Reduced top and bottom padding */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Depth with shadow */
+    border-radius: 12px; /* Smooth rounded corners */
+    margin-top: 60px; /* Reduced top margin */
+    margin-bottom: 10px; /* Reduced bottom margin */
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Space between elements */
+}
+
+/* Header for Categories */
+.cat-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Align title and items */
+    flex-wrap: wrap;
+    margin-bottom: 10px; /* Reduced space between title and categories */
+}
+
+/* Title for Categories */
+.cat-title {
+    font-size: 24px; /* Larger font size */
+    font-weight: 600; /* Slightly lighter boldness */
+    color: #343a40; /* Darker text for readability */
+    text-transform: uppercase; /* Uppercase for modern look */
+    letter-spacing: 1px; /* Small spacing between letters */
+}
+
+/* Individual Category Item */
+.category {
+    background-color: #007bff; /* Blue background for category items */
+    color: white;
+    padding: 12px 18px; /* More padding for button-like feel */
+    border-radius: 25px; /* Round corners for modern design */
+    cursor: pointer; /* Pointer cursor on hover */
+    margin: 8px; /* Space between items */
+    font-size: 16px; /* Slightly larger text */
+    font-weight: 500; /* Medium text weight */
+    transition: all 0.3s ease; /* Smooth transition for effects */
+    text-transform: capitalize; /* Capitalized category names */
+    display: inline-block; /* Ensures categories are inline */
+    white-space: nowrap; /* Prevents text wrapping */
+}
+
+/* Hover effect for category items */
+.category:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: scale(1.05); /* Slight scaling effect */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* Shadow on hover */
+}
+
+/* Active effect for category items */
+.category:active {
+    background-color: #004085; /* Even darker blue on click */
+    transform: scale(1); /* Reset scaling */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .cat-container {
+        padding: 15px; /* Reduced padding for smaller screens */
+    }
+
+    .cat-header {
+        flex-direction: column; /* Stack header items vertically */
+        align-items: flex-start; /* Align items to the left */
+    }
+
+    .cat-title {
+        margin-bottom: 10px; /* Space between title and categories */
+    }
+
+    .category {
+        font-size: 14px; /* Slightly smaller text on mobile */
+        padding: 8px 14px; /* Adjust padding on smaller screens */
+    }
+}

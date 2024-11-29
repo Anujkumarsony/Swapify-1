@@ -1,6 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom';
 import './Header.css';
 import categories from './CategoriesList';
+import './category.css';
 
 function Categories(props){
 
