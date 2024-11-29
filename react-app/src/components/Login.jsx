@@ -20,8 +20,14 @@ function Login() {
         axios.post(url, data)
             .then((res) => {
                 if (res.data.message) {
+<<<<<<< HEAD
                     if (res.data.token) {
                         localStorage.setItem('token', res.data.token);
+=======
+                    if(res.data.token){
+                        localStorage.setItem('token', res.data.token);
+                        localStorage.setItem('userId', res.data.userId);
+>>>>>>> bd03d83ece5303b0a85744d4e760f5f29f844d61
                         navigate('/');
                     }
                     alert(res.data.message);

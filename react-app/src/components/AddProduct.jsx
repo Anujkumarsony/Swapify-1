@@ -30,17 +30,17 @@ function AddProduct() {
         formData.append('category', category)
         formData.append('pimage', pimage)
 
-        const  url = 'http://localhost:4000/add-product';
+        const url = 'http://localhost:4000/add-product';
         axios.post(url, formData)
-        .then((res)=>{
-            console.log(res);
-            navigate('/');
-            alert(res.data.message);
-        })
-        .catch((err)=>{
-            alert('server error');
-            
-        })
+            .then((res) => {
+                // console.log(res);cl
+                navigate('/');
+                alert(res.data.message);
+            })
+            .catch((err) => {
+                alert('server error');
+
+            })
 
     }
 
@@ -70,6 +70,14 @@ function AddProduct() {
                     onChange={(e) => {
                         setpimage(e.target.files[0])
                     }} />
+                <label> Swap With Category</label>
+                <select className="form-control" value={category}
+                    onChange={(e) => { setcategory(e.target.value) }} >
+                    <option> Electronics </option>
+                    <option> Furniture </option>
+                    <option> Vehicles </option>
+                    <option> Cloth </option>
+                </select>    
                 <button onClick={handleApi} className="btn btn-primary mt-3"> SUBMIT </button>
             </div>
 
