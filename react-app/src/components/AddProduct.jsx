@@ -12,7 +12,9 @@ function AddProduct() {
     const [pdesc, setpdesc] = useState('');
     const [price, setprice] = useState('');
     const [category, setcategory] = useState('Bikes');
+    const [category1, setcategories] = useState('Bikes');
     const [pimage, setpimage] = useState('');
+    const userKey = localStorage.getItem('userId');
 
     useEffect(() => {
         if (!localStorage.getItem('token')) {
@@ -26,6 +28,7 @@ function AddProduct() {
         formData.append('pdesc', pdesc)
         formData.append('price', price)
         formData.append('category', category)
+        formData.append('category1', category1)
         formData.append('pimage', pimage);
 
         // Get the user ID from local storage
@@ -40,7 +43,6 @@ function AddProduct() {
         const url = 'http://localhost:4000/add-product';
         axios.post(url, formData)
             .then((res) => {
-                // console.log(res);cl
                 navigate('/');
                 alert(res.data.message);
             })
@@ -72,6 +74,7 @@ function AddProduct() {
                     <option> Mobile </option>
                     <option> Cloth </option>
                     <option> Laptop </option>
+                    <option> Electronics </option>
                 </select>
                 <label> Product Image </label>
                 <input className="form-control" type="file"
@@ -79,8 +82,8 @@ function AddProduct() {
                         setpimage(e.target.files[0])
                     }} />
                 <label> Swap With Category</label>
-                <select className="form-control" value={category}
-                    onChange={(e) => { setcategory(e.target.value) }} >
+                <select className="form-control" value={category1}
+                    onChange={(e) => { setcategories(e.target.value) }} >
                     <option> Electronics </option>
                     <option> Furniture </option>
                     <option> Vehicles </option>
@@ -92,5 +95,4 @@ function AddProduct() {
         </div>
     )
 }
-
 export default AddProduct;

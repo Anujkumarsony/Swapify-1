@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const cookieParser = require("cookie-parser");
 var jwt = require('jsonwebtoken');
 
 const Users = mongoose.model('Users', {
@@ -78,7 +79,6 @@ module.exports.getUserById = (req, res) => {
         })
 }
 
-
 module.exports.login = (req, res) => {
     const username = req.body.username;
     const password = req.body.password;
@@ -92,6 +92,7 @@ module.exports.login = (req, res) => {
                     const token = jwt.sign({
                         data: result
                     }, 'MYKEY', { expiresIn: '1h' });
+                    res.cookie("userId", result._id, {maxAge: 24 * 60 * 60 * 1000});
                     res.send({ message: 'find success.', token: token, userId: result._id })
                 }
                 if (result.password != password) {

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import Header from "./Header";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Categories from "./Categories.jsx";
 import axios from "axios";
 import { useState } from "react";
@@ -37,17 +37,29 @@ function Home() {
         setsearch(value);
     }
 
-    const handleClick = (value) => {
-        let filteredProducts = products.filter((item) => {
-            if (item.pname.toLowerCase().includes(search.toLowerCase()) ||
-                item.pdesc.toLowerCase().includes(search.toLowerCase()) ||
-                item.category.toLowerCase().includes(search.toLowerCase())) {
-                // console.log(item);
-                return item;
-            }
+    const handleClick = () => {
 
-        });
-        setcproducts(filteredProducts)
+        const url = 'http://localhost:4000/search?search=' + search;
+        axios.get(url)
+        .then((res) => {
+            console.log(res.data); 
+        })
+        .catch ((error) => {
+            alert('An error occurred while liking the product. Please try again later.');
+        })
+
+
+
+        // let filteredProducts = products.filter((item) => {
+        //     if (item.pname.toLowerCase().includes(search.toLowerCase()) ||
+        //         item.pdesc.toLowerCase().includes(search.toLowerCase()) ||
+        //         item.category.toLowerCase().includes(search.toLowerCase())) {
+        //         // console.log(item);
+        //         return item;
+        //     }
+
+        // });
+        // setcproducts(filteredProducts)
     }
 
     const handleCategory = (value) => {
