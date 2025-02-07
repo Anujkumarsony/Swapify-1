@@ -24,12 +24,18 @@ function Header(props) {
             </div>
 
             <div>
-                {!!localStorage.getItem('token') && 
+                {!!localStorage.getItem('token') &&
                     <><Link to="/liked-products">
-                        <button className="liked-btn"> <FaHeart className='hl-1'/>YOUR WISHLIST </button>
-                    </Link><Link to="/add-product">
+                        <button className="liked-btn"> <FaHeart className='hl-1' />YOUR WISHLIST </button>
+                    </Link>
+                        <Link to="/add-product">
                             <button className="ap-btn"> ADD PRODUCT </button>
-                        </Link></>}
+                        </Link>
+                        <Link to="/chat">
+                            <button> Chat </button>
+                        </Link> {/* Link to chat */}
+                    </>
+                }
 
 
                 {!localStorage.getItem('token') ?

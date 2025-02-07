@@ -88,7 +88,7 @@ function LikedProducts() {
             <Header search={search} handlesearch={handlesearch} handleClick={handleClick} />
             <Categories handleCategory={handleCategory} />
 
-            <h5> SEARCH RESULTS </h5>
+            {/* <h5> SEARCH RESULTS </h5> */}
 
             <div className="d-flex justify-content-center flex-wrap">
                 {cproducts && products.length > 0 &&
@@ -107,7 +107,7 @@ function LikedProducts() {
                     })}
             </div>
  
-            <h5>All Results</h5>
+            {/* <h5>All Results</h5> */}
 
             <div className="d-flex justify-content-center flex-wrap">
                 {products && products.length > 0 &&

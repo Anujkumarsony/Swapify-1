@@ -9,6 +9,8 @@ function Signup() {
      
     const [username, setusername] = useState('');
     const [password, setpassword] = useState('');
+    const [mobile, setmobile] = useState('');
+    const [email, setemail] = useState('');
     
     const handleApi = () => {
         if (!username || !password) {
@@ -34,6 +36,7 @@ function Signup() {
             <Header />
             <div className="signup-box">
                 <h2>Welcome to Signup Page</h2>
+                <br/>
                 <label htmlFor="username">USERNAME</label>
                 <input 
                     type="text" 
@@ -42,6 +45,24 @@ function Signup() {
                     onChange={(e) => setusername(e.target.value)} 
                     className="signup-input"
                 />
+                <br />
+                <label htmlFor="password">MOBILE</label>
+                <input 
+                    type="text" 
+                    id="username" 
+                    value={mobile} 
+                    onChange={(e) => setmobile(e.target.value)} 
+                    className="signup-input"
+                />
+                <label htmlFor="password">EMAIL</label>
+                <input 
+                    type="text" 
+                    id="username" 
+                    value={email} 
+                    onChange={(e) => setemail(e.target.value)} 
+                    className="signup-input"
+                />
+                <br />
                 <label htmlFor="password">PASSWORD</label>
                 <input 
                     type="password" 
@@ -50,6 +71,7 @@ function Signup() {
                     onChange={(e) => setpassword(e.target.value)} 
                     className="signup-input"
                 />
+                <br />
                 <button onClick={handleApi} className="signup-button">Signup</button>
                 <Link to="/login" className="login-link">Login</Link>
             </div>

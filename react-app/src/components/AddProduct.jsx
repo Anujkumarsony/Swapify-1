@@ -14,6 +14,7 @@ function AddProduct() {
     const [category, setcategory] = useState('Bikes');
     const [category1, setcategories] = useState('Bikes');
     const [pimage, setpimage] = useState('');
+    const [pimage2, setpimage2] = useState('');
     const userKey = localStorage.getItem('userId');
 
     useEffect(() => {
@@ -30,6 +31,8 @@ function AddProduct() {
         formData.append('category', category)
         formData.append('category1', category1)
         formData.append('pimage', pimage);
+        formData.append('pimage2', pimage2);
+        formData.append('userId',localStorage.getItem('userId'))
 
         // Get the user ID from local storage
         // const userId = localStorage.getItem('userId');
@@ -80,6 +83,11 @@ function AddProduct() {
                 <input className="form-control" type="file"
                     onChange={(e) => {
                         setpimage(e.target.files[0])
+                    }} />
+                <label> Product Second Image </label>
+                <input className="form-control" type="file"
+                    onChange={(e) => {
+                        setpimage2(e.target.files[0])
                     }} />
                 <label> Swap With Category</label>
                 <select className="form-control" value={category1}

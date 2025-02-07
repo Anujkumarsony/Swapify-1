@@ -1,23 +1,28 @@
-.icons{
+.icons {
     font-size: 32px;
     height: 32px;
     width: 32px;
     color: #ddd;
     cursor: pointer;
-  }
-
-.icons:active{
-    color: red;
 }
 
-.icon-con{
+/* .icons:active {
+    color: red;
+} */
+
+/* New class for liked state */
+.icons.liked {
+    color: red; /* Change to red when liked */
+}
+
+.icon-con {
     position: absolute;
     top: 0;
     right: 0;
     border-radius: 50%;
     padding: 7px;
     background-color: #fff;
-    margin:10px;
+    margin: 10px;
 }
 /* Home.css */
 
@@ -236,4 +241,17 @@ header a:hover {
     background-color: #fff;
     margin:10px;
 }
+}
+
+.clear-btn {
+    height: 24px;   
+    background-color: #002f34;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 12px;
+    outline: none;
+    border: none;
+    padding: 0px 15px;
+    margin-top: 10px;
+    margin-left: 10px;
 }
