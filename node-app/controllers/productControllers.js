@@ -8,6 +8,7 @@ let schema = new mongoose.Schema({
     price: String,
     category: String,
     pimage: String,
+    pimage2: String,
     category1: String,
     addedBy: String,
     // pLoc: {
@@ -30,7 +31,7 @@ const Products = mongoose.model('Products', schema);
 module.exports.search = (req, res) => {
 
     let search = req.query.search;
-
+    // console.log(search)
     // let latitude = req.query.loc.split(',')[0]
     // let longitude = req.query.loc.split(',')[1]
 
@@ -42,7 +43,7 @@ module.exports.search = (req, res) => {
         ]
     })
         .then((result) => {
-            res.send({ message: 'success', products: results })
+            res.send({ message: 'success', products: result })
         })
         .catch((err) => {
             res.send({ message: 'server error' })
@@ -79,12 +80,13 @@ module.exports.addProduct = (req, res) => {
     const price = req.body.price;
     const category = req.body.category;
     const pimage = req.files.pimage[0].path;
+    const pimage2 = req.files.pimage2[0].path;
     // const pimage = req.body.pimage
     const category1 = req.body.category1;
-    const addedBy = req.cookies.userId;
+    const addedBy = req.body.userId;
     console.log(addedBy)
     const product = new Products({
-        pname, pdesc, price, category, pimage, category1, addedBy, 
+        pname, pdesc, price, category, pimage, pimage2, category1, addedBy, 
         // pLoc: {
         //     type: 'Point', coordinates: [plat, plong]
         // }
@@ -112,7 +114,6 @@ module.exports.getProducts = (req, res) => {
     Products.find(_f)
         .then((result) => {
             res.send({ message: 'success', products: result })
-
         })
         .catch((err) => {
             res.send({ message: 'server err' })
@@ -121,7 +122,7 @@ module.exports.getProducts = (req, res) => {
 }
 
 module.exports.getProductsById = (req, res) => {
-    console.log(req.params);
+    // console.log(req.params); 
 
     Products.findOne({ _id: req.params.pId })
         .then((result) => {
