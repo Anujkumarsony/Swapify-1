@@ -40,6 +40,7 @@ module.exports.search = (req, res) => {
             { pname: { $regex: search } },
             { pdesc: { $regex: search } },
             { price: { $regex: search } },
+            { category: { $regex: search } },
         ]
     })
         .then((result) => {
@@ -112,8 +113,8 @@ module.exports.getProducts = (req, res) => {
     }
 
     Products.find(_f)
-        .then((result) => {
-            res.send({ message: 'success', products: result })
+        .then((results) => {
+            res.send({ message: 'success', products: results })
         })
         .catch((err) => {
             res.send({ message: 'server err' })

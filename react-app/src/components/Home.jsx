@@ -123,7 +123,7 @@ function Home() {
                     <button className="clear-btn" onClick={() => {
                         setsearching(false);
                         setsearch(['']);
-                        }}> CLEAR </button>
+                         }}> CLEAR </button>
                 </h5>
             }
             {searching && cproducts && cproducts.length == 0 && <h5> NO RESULTS FOUND </h5>}

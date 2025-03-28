@@ -77,6 +77,7 @@ function AddProduct() {
                     <option> Mobile </option>
                     <option> Cloth </option>
                     <option> Laptop </option>
+                    <option> Stationary </option>
                     <option> Electronics </option>
                 </select>
                 <label> Product Image </label>
