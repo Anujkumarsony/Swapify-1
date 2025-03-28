@@ -28,6 +28,24 @@
     text-transform: uppercase; /* Uppercase for modern look */
     letter-spacing: 1px; /* Small spacing between letters */
 }
+/* Container for Categories - Fixed on Scroll */
+.cat-container {
+    background-color: #f8f9fa;
+    padding: 10px 25px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    position: fixed; /* Fix the category bar */
+    top: 15px; /* Adjust based on header height */
+    left: 0;
+    width: 100%; /* Full width */
+    z-index: 999; /* Keep it above other elements */
+}
+
+/* Push main content down to avoid overlap */
+.main-content {
+    margin-top: 150px; /* Adjust based on header + category height */
+}
+
 
 /* Individual Category Item */
 .category {
@@ -36,7 +54,7 @@
     padding: 12px 18px; /* More padding for button-like feel */
     border-radius: 25px; /* Round corners for modern design */
     cursor: pointer; /* Pointer cursor on hover */
-    margin: 8px; /* Space between items */
+    margin: 2px; /* Space between items */
     font-size: 16px; /* Slightly larger text */
     font-weight: 500; /* Medium text weight */
     transition: all 0.3s ease; /* Smooth transition for effects */
